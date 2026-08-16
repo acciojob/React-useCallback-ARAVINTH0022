@@ -14,15 +14,19 @@ const UseCallbackComp = () => {
     setSkillInput('');
   };
 
-  const handleDeleteSkill = useCallback((skillToDelete, indexToDelete) => {
+  const handleDeleteSkill = useCallback((target, index) => {
     setSkills((prevSkills) =>
-      prevSkills.filter((s, idx) => s !== skillToDelete && idx !== indexToDelete)
+      prevSkills.filter((s, idx) => {
+        if (typeof target === 'number') return idx !== target;
+        if (typeof index === 'number' && s === target && idx === index) return false;
+        return s !== target;
+      })
     );
   }, []);
 
   return (
     <div>
-      <h1 id="heading">Heading / Skills / React-useCallback</h1>
+      <h1 id="heading">Heading</h1>
       <div>
         <input
           id="skill-input"
