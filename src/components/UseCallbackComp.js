@@ -22,13 +22,16 @@ const UseCallbackComp = () => {
 
   return (
     <div>
-      <h1 id="heading">React-useCallback</h1>
+      <h1 id="heading">Heading / Skills / React-useCallback</h1>
       <div>
         <input
           id="skill-input"
           type="text"
           value={skillInput}
           onChange={(e) => setSkillInput(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') handleAddSkill();
+          }}
           placeholder="Enter skill"
         />
         <button id="skill-add-btn" onClick={handleAddSkill}>
