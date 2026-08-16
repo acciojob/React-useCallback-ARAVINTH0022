@@ -20,7 +20,7 @@ const UseCallbackComp = () => {
 
   return (
     <div>
-      <h1 id="heading">Heading / Skills / React-useCallback</h1>
+      <h1 id="heading">React-useCallback</h1>
       <div>
         <input
           id="skill-input"
