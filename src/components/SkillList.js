@@ -17,7 +17,7 @@ const SkillList = React.memo(({ skills = [], onDelete, onDeleteSkill, handleDele
           }}
           style={{ cursor: 'pointer', margin: '5px 0' }}
         >
-          {skill}
+          <span id={`skill-number-${skill}`}>{skill}</span>
         </li>
       ))}
     </ul>
