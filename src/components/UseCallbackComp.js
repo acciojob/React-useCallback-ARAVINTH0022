@@ -14,8 +14,10 @@ const UseCallbackComp = () => {
     setSkillInput('');
   };
 
-  const handleDeleteSkill = useCallback((skillToDelete) => {
-    setSkills((prevSkills) => prevSkills.filter((s) => s !== skillToDelete));
+  const handleDeleteSkill = useCallback((skillToDelete, indexToDelete) => {
+    setSkills((prevSkills) =>
+      prevSkills.filter((s, idx) => s !== skillToDelete && idx !== indexToDelete)
+    );
   }, []);
 
   return (
@@ -39,3 +41,4 @@ const UseCallbackComp = () => {
 };
 
 export default UseCallbackComp;
+export { UseCallbackComp, SkillList };

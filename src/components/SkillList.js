@@ -5,9 +5,14 @@ const SkillList = React.memo(({ skills, onDelete }) => {
     <ul id="skill-list">
       {skills.map((skill, index) => (
         <li
-          key={skill + index}
+          key={index}
           id={`skill-number-${index}`}
-          onClick={() => onDelete(skill)}
+          className="skill-item"
+          onClick={() => {
+            if (typeof onDelete === 'function') {
+              onDelete(skill, index);
+            }
+          }}
           style={{ cursor: 'pointer', margin: '5px 0' }}
         >
           {skill}
@@ -18,3 +23,4 @@ const SkillList = React.memo(({ skills, onDelete }) => {
 });
 
 export default SkillList;
+export { SkillList };
