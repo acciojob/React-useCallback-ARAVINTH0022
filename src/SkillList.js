@@ -1,16 +1,18 @@
 import React from 'react';
 
-const SkillList = React.memo(({ skills, onDelete }) => {
+const SkillList = React.memo(({ skills = [], onDelete, onDeleteSkill, handleDeleteSkill, deleteSkill }) => {
+  const handler = onDelete || onDeleteSkill || handleDeleteSkill || deleteSkill;
+
   return (
     <ul id="skill-list">
       {skills.map((skill, index) => (
         <li
-          key={skill}
+          key={skill + index}
           id={`skill-number-${index}`}
           className="skill-item"
           onClick={() => {
-            if (typeof onDelete === 'function') {
-              onDelete(skill, index);
+            if (typeof handler === 'function') {
+              handler(skill, index);
             }
           }}
           style={{ cursor: 'pointer', margin: '5px 0' }}

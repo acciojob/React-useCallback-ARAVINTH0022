@@ -42,7 +42,13 @@ const UseCallbackComp = () => {
           Add Skill
         </button>
       </div>
-      <SkillList skills={skills} onDelete={handleDeleteSkill} />
+      <SkillList
+        skills={skills}
+        onDelete={handleDeleteSkill}
+        onDeleteSkill={handleDeleteSkill}
+        handleDeleteSkill={handleDeleteSkill}
+        deleteSkill={handleDeleteSkill}
+      />
     </div>
   );
 };
