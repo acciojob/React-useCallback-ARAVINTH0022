@@ -7,8 +7,8 @@ const SkillList = React.memo(({ skills = [], onDelete, onDeleteSkill, handleDele
     <ul id="skill-list">
       {skills.map((skill, index) => (
         <li
-          key={skill + index}
-          id={`skill-number-${index}`}
+          key={skill}
+          id={`skill-number-${skill}`}
           className="skill-item"
           onClick={() => {
             if (typeof handler === 'function') {
