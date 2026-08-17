@@ -14,12 +14,12 @@ const UseCallbackComp = () => {
     setSkillInput('');
   };
 
-  const handleDeleteSkill = useCallback((target, index) => {
+  const handleDeleteSkill = useCallback((skillToDelete, indexToDelete) => {
     setSkills((prevSkills) =>
       prevSkills.filter((s, idx) => {
-        if (typeof target === 'number') return idx !== target;
-        if (typeof index === 'number' && s === target && idx === index) return false;
-        return s !== target;
+        if (typeof skillToDelete === 'number') return idx !== skillToDelete;
+        if (typeof indexToDelete === 'number') return idx !== indexToDelete;
+        return s !== skillToDelete;
       })
     );
   }, []);
@@ -42,13 +42,7 @@ const UseCallbackComp = () => {
           Add Skill
         </button>
       </div>
-      <SkillList
-        skills={skills}
-        onDelete={handleDeleteSkill}
-        onDeleteSkill={handleDeleteSkill}
-        handleDeleteSkill={handleDeleteSkill}
-        deleteSkill={handleDeleteSkill}
-      />
+      <SkillList skills={skills} onDelete={handleDeleteSkill} />
     </div>
   );
 };
