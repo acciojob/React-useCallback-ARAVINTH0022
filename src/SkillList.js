@@ -1,13 +1,13 @@
 import React from 'react';
 
-const SkillList = React.memo(({ skills = [], onDelete, onDeleteSkill, handleDeleteSkill, deleteSkill, removeSkill, onClick }) => {
-  const handler = onDelete || onDeleteSkill || handleDeleteSkill || deleteSkill || removeSkill || onClick;
+const SkillList = React.memo(({ skills = [], onDelete, onDeleteSkill, handleDeleteSkill, deleteSkill }) => {
+  const handler = onDelete || onDeleteSkill || handleDeleteSkill || deleteSkill;
 
   return (
     <ul id="skill-list">
       {skills.map((skill, index) => (
         <li
-          key={skill + index}
+          key={skill}
           id={`skill-number-${skill}`}
           className="skill-item"
           onClick={() => {
